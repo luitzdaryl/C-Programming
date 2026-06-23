@@ -1,42 +1,43 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
 
-void swap(int *x, int *y) {
-  int temp = *x;
-  *x = *y;
-  *y = temp;
-}
+int data[1000];
 
-int partition(int a[], int low, int high) {
-  int pivot = a[high];
-  int i = low;
-  for (int j = low; j < high; j++) {
-    if (a[j] < pivot) {
-      swap(&a[j], &a[i]);
-      i++;
+int Quick_Sort(int left,int right){
+    if(left < right){
+        int i = left + 1, j = right, splitting = data[left], temp;
+        do{
+            while(i < right && data[i] <= splitting) i++;
+            while(j > left && data[j] > splitting) j--;
+            if(i < j){
+            temp = data[i];
+            data[i] = data[j];
+            data[j] = temp;
+            }
+        }while(i < j);
+        temp = data[j];
+        data[j] = data[left];
+        data[left] = temp;
+        Quick_Sort(left, j - 1);
+        Quick_Sort(j + 1, right);
     }
-  }
-  // i++;
-  swap(&a[i], &a[high]);
-  return i;
 }
+int main(){
+    int i, num;
 
-void quickSort(int a[], int low, int high) {
-  if (low <= high) {
-    int pivot = partition(a, low, high);
-    quickSort(a, low, pivot-1);
-    quickSort(a, pivot+1, high);
-  }
-}
+    printf("how many number do you want to be sorted?");
+    scanf("%d",&num);
 
-int main() {
-  int a[] = { 9, 2, 8, 5, 2, 1, 9, 5, 1 };
-  int len = sizeof(a) / sizeof(a[0]);
-  quickSort(a, 0, len-1);
-  printf("Sorted result: \n");
-  for (size_t i = 0; i < len; i++) {
-    printf("%d ", a[i]);
-  }
-  printf("\n");
-  return 0;
+    printf("number will be sorted:");
+    for(i=0;i<num;i++){
+        scanf("%d",&data[i]);
+    }
+
+    Quick_Sort(0, num - 1);
+    
+    printf("in sorted order:");
+    for(i=0;i<num;i++){
+        printf("%d ",data[i]);
+    }
+
+    return 0;
 }
