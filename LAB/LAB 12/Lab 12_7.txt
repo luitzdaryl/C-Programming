@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+
+#define SIZE 200
+int main(){
+
+	char *p;
+  
+	char parag[SIZE]="";
+	char userInput[SIZE]="";
+	char f[SIZE]="";
+	
+	gets(userInput);
+	scanf("%s", f);
+	
+	p=strstr(userInput, f);
+	
+	while(p!=NULL){
+		printf("%s\n", p);
+		
+		strcpy(parag, p+1);
+		p=strstr(parag, f);
+	}
+	return 0;
+}

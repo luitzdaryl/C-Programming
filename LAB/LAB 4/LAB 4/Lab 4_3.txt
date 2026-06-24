@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int productNumber, quantitySold;
+    float result, pricing;
+
+    while(1){
+    //printf("Product number: \n");
+    scanf("%d", &productNumber);
+
+    if (productNumber==-1){
+              break;
+    }
+
+
+    switch(productNumber){
+
+    case 1:
+        pricing=2.98;
+
+        break;
+
+    case 2:
+        pricing=4.50;
+
+        break;
+
+    case 3:
+        pricing=9.98;
+
+        break;
+
+    case 4:
+        pricing=4.49;
+
+        break;
+
+    case 5:
+        pricing=6.87;
+
+        break;
+
+}
+
+    //printf("Quantity: ");
+    scanf("%d", &quantitySold);
+
+    result+=(quantitySold*pricing);
+
+    printf("%.2f\n", result);
+
+     }
+    return 0;
+}

@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <string.h>
+
+#define SIZE 200
+
+int main(){
+    
+    int i=0, j=0, counter=0;
+    
+	char userInput[SIZE]="";
+	char temp[SIZE]="";
+	char str[SIZE][SIZE]={{""}};
+
+	
+	gets(userInput);
+	
+	int len=strlen(userInput);
+	
+	if(userInput[len-1]=='"')
+		userInput[len-1]='\0';
+		
+	len=strlen(userInput);
+	//int i=0, j=0, cnt=0;
+	while(userInput[j]!='\0') {
+		str[counter][i]=userInput[j];
+		i++;
+		j++;
+		
+		if(userInput[j]==' ') {
+			i=0;
+			j++;
+			counter++;
+		}
+	}
+	
+	for(j=0; j<=counter; j++){
+		for(i=1; i<=counter; i++){
+	
+	int ret=strcmp(str[i-1], str[i]);
+	
+			if(ret>0) {
+				strcpy(temp, str[i-1]);
+				strcpy(str[i-1], str[i]);
+				strcpy(str[i], temp);
+			}
+		}
+	}
+		
+	for(i=0; i<=counter; i++){
+		printf("\"%s\"",str[i]);
+		
+		if(i!=counter)
+		   printf(",");
+	}
+	
+	return 0;
+}

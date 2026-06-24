@@ -1,0 +1,19 @@
+# include <stdio.h>
+# include <stdlib.h>
+ 
+void stringReverse(char *str); // function prototype
+
+int main(){
+   char userInput[200];
+  
+   scanf("%s",userInput);
+   stringReverse(userInput);
+   return 0;
+}
+
+void stringReverse(char *str){
+   if (*str){
+       stringReverse(str+1);
+       printf("%c", *str);
+   }
+}

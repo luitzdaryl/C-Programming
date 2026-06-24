@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(){
+    srand(4823);
+
+    int a[5][5]; // declaration of the array
+    int i,j,row,column;
+    int matrixRow=0, matrixColumn=0, cr=0, cc=0;
+
+    int size=5;
+
+    for(i=0; i<size;i++){
+        for(j=0; j<size; j++){
+
+            a[i][j]=rand()%2; // random generator
+            printf("%d ",a[i][j]);
+        }
+        printf("\n");
+    }
+    for(i=0; i<size;i++){
+        for(j=0; j<size; j++){
+
+            cr=cr+a[i][j];
+            if(cr==matrixRow){
+                matrixRow=cr;
+                row=i;
+            }
+            cc=cc+a[i][j];
+            if(cc>matrixColumn){
+                matrixColumn=cc;
+                column=i;
+            }
+        }
+
+    }
+    printf("%d %d",row,column);
+}

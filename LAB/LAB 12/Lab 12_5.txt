@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+#define SIZE 200
+int main(){
+    
+	char userInput[SIZE]="";
+	int i=0, j=0; 
+	int counter=0;
+	char str[50][50]={{""}};
+	
+	
+	gets(userInput,SIZE,stdin); // get the string from the user
+	
+	while(userInput[j]!='\0'){
+		str[counter][i]=userInput[j];
+        // incrementation needed
+		i++;
+		j++;
+		
+		if(userInput[j]==' '){
+			i=0;
+			j++;
+			
+		counter++;
+		}
+	}
+	for(i=counter; i>=0; i--){
+		printf("%s ", str[i]);
+	}
+	
+	return 0;
+}

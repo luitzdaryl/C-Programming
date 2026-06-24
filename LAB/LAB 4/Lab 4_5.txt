@@ -1,0 +1,28 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+int main()
+{
+    long long x, i;
+    long long userValue=0, y=0;
+
+
+    while(userValue<=9999999999){
+        scanf("%lld",&userValue);
+
+             for(i=0;i<=9;i++){
+                y+=userValue;
+                x=y%10;
+                y/=10;
+                userValue=0;
+
+                // List each digits for the number from the rightmost digit
+            printf("%lld\n",x);
+        }
+
+        break;
+    }
+
+    return 0;
+}
+

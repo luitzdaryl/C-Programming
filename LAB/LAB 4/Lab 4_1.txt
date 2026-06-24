@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    for(int i=0; i<10; i++){
+        for(int j=0; j<i+1;j++)
+
+            printf("*");
+            printf("%s","\n");
+    }
+    printf("\n");
+    for(int i=11; i>=0; i--){
+        for(int j=0; j<i-1;j++)
+
+            printf("*");
+            printf("%s","\n");
+    }
+
+    for (int i=0; i <=10; i++)
+    {
+        for (int j=1; j<=i; j++)
+        {
+            printf(" ");
+        }
+        for (int k=i; k <10; k++)
+        {
+            printf("*"); // print the Star
+        }
+
+        printf("%s","\n");
+    }
+
+
+    for (int i=0; i<=10; i++)
+    {
+        for (int j=i; j<10; j++)
+        {
+            printf(" ");
+        }
+        for (int k=1; k<=i; k++)
+        {
+            printf("*"); // print the Star
+        }
+
+       printf("%s","\n");
+    }
+
+    return 0;
+}

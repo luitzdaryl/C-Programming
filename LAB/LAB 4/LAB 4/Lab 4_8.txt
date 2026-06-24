@@ -1,0 +1,20 @@
+#include<stdio.h>
+
+int main(){
+int i;
+float num;
+float largest1=0.00,largest2=0.00;
+
+for(i=0;i<10;i++){
+   
+    scanf("%f", &num);
+    if(num>largest1){
+        largest2=largest1;
+        largest1=num;
+    }else if(num>largest2){
+       largest2=num;
+    }
+}
+printf("%.2f\n%.2f", largest1, largest2);
+return 0;
+}

@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    double piValue, val;
+    double i, j, result;
+
+    //for loop to make the calculation
+    for (i=1;i<=10;i++) {
+        val=10000*i;
+
+        for(j=1; j<=val; j++) {
+
+        result= pow(-1,j+1)/((2*j)-1);
+        piValue=piValue+(4*result);
+        }
+
+        //Printing the value of pi
+        printf("%.6lf\n",piValue);
+        piValue=0;
+    }
+
+    return 0;
+}

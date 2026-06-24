@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(){
+    
+    int counter=0, c=0, i1=0, i2=0;
+	bool checker=false;
+	int n1[8]={0}, n2[3]={0};
+	float f1[8]={0}, f2[3]={0};
+	char c1[3][50]={{0}}, c2[3][50]={{0}};
+	
+	FILE *ptr=NULL;
+	FILE *ptr2=NULL;
+	FILE *ptr3=NULL;
+	
+	float f[8]={0};
+	float fn2[3]={0}, fn;
+	
+	ptr=fopen("14_3trans.txt", "r");
+	ptr2=fopen("14_3oldmast.txt", "r");
+	ptr3=fopen("14_3newmast.txt", "w");
+	
+	while(!(feof(ptr))) {
+		fscanf(ptr, "%d %f", &n1[i1], &f1[i1]);
+		i1++;
+	}
+
+	while(!(feof(ptr2))) {
+		fscanf(ptr2, "%d %s %s %f", &n2[i2], &c1[i2], &c2[i2], &f2[i2]);
+		i2++;
+	}
+
+	while(c<i1-1) {
+
+		counter=0;
+		checker=false;
+		while(counter<i2) {
+
+
+			if(n1[c]==n2[counter]) {
+				f2[counter] += f1[c];
+
+				checker=true;
+				printf("%d %s %s %.2f\n", n2[counter], c1[counter], c2[counter], f2[counter]);
+				break;
+			}
+			counter++;
+		}
+		if(checker==false) {
+			printf("Unmatched transaction record for account number %d\n", n1[c]);
+		}
+		c++;
+	}
+
+	counter=0;
+	while(counter<i2) {
+		fprintf(ptr3, "%d %s %s %.2f\n", n2[counter], c1[counter], c2[counter], f2[counter]);
+		counter++;
+	}
+//close the files
+	fclose(ptr);
+	fclose(ptr2);
+	fclose(ptr3);
+	return 0;
+}

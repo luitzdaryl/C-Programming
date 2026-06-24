@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1665458752 source:d:\cs - information engineering\csie-ntust-4\lab of computer programming\lab5_7\main.c
+	<stdio.h>
+	<stdbool.h>
+

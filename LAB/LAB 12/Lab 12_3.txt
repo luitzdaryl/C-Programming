@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main (){
+  
+char userInput[20];
+char *p;
+char areaCode[3] = {0};
+char phoneNumber[9] = {0};
+
+    scanf("%s",userInput);
+
+    p = strtok (userInput, "()- ");
+       if (p != NULL)
+           strncat (areaCode, p, sizeof areaCode - 1);
+
+    p = strtok (NULL, "()- ");
+
+       if (p != NULL)
+           strncat (phoneNumber, p, sizeof phoneNumber - 1);
+
+    p = strtok (NULL, "()- ");
+
+       if ( p != NULL )
+          strncat (phoneNumber, p, sizeof phoneNumber - 1);
+
+   int new_areaCode=atoi(areaCode);
+   long new_phoneNumber=atoi(phoneNumber);
+
+    printf("%02d\n",new_areaCode);
+    printf("%ld",new_phoneNumber);
+
+}

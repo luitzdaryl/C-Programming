@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1667289393 source:d:\cs - information engineering\csie-ntust-4\lab of computer programming\lab 8_5\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

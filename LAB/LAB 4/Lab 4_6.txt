@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+ int main()
+ {
+    int side1, side2, hypot, i=0;
+
+    for (side1=1; side1<=500; ++side1)
+    {
+ 	  for (side2=side1+1; side2<=500; ++side2)
+ 	  {
+ 		 for (hypot=side2+1; hypot<=500; ++hypot)
+ 		 {
+ 			if (side1*side1+side2*side2==hypot*hypot )
+ 			{
+ 			   printf("%d %d %d\n", side1, side2, hypot);
+ 			}
+ 		 }
+ 	  }
+    }
+    return 0;
+ }
